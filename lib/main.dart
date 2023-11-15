@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/view/notes_screen.dart';
+import 'package:notes_app/view/notes_view.dart';
 
 void main() {
   runApp(const NotesApp());
@@ -19,7 +19,6 @@ class NotesApp extends StatelessWidget {
         NotesView.id: (context) => const NotesView(),
       },
       initialRoute: NotesView.id,
-      home: Container(),
     );
   }
 }
