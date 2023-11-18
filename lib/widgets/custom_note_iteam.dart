@@ -7,6 +7,10 @@ class NoteIteam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(
+        top: 24,
+        bottom: 24,
+      ),
       decoration: BoxDecoration(
         color: Colors.yellow,
         borderRadius: BorderRadius.circular(16),
@@ -22,17 +26,24 @@ class NoteIteam extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 26,
                   )),
-              subtitle: Text('Build Your Career',
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(
+                  'Build Your Career',
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6),
                     fontSize: 20,
-                  )),
+                  ),
+                ),
+              ),
               trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.black,
-                  )),
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.black,
+                  size: 30,
+                ),
+              ),
             ),
             Text(
               DateFormat('dd/MM/yyyy').format(DateTime.now()),
