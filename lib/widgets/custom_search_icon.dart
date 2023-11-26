@@ -14,11 +14,12 @@ class CustomSearchIcon extends StatelessWidget {
       ),
       child: Center(
         child: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.search,
-              size: 28,
-            )),
+          onPressed: () {},
+          icon: const Icon(
+            Icons.search,
+            size: 28,
+          ),
+        ),
       ),
     );
   }
