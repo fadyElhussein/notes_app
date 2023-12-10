@@ -17,14 +17,7 @@ class NotesView extends StatelessWidget {
             ),
             context: context,
             builder: (context) {
-              return Padding(
-                padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom,
-                  left: 16,
-                  right: 16,
-                ),
-                child: const AddNoteBottomSheet(),
-              );
+              return const AddNoteBottomSheet();
             },
           );
         },

@@ -1,60 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_button.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:notes_app/add_note_cubit/add_note_cubit.dart';
+import 'package:notes_app/add_note_cubit/add_note_state.dart';
+import 'package:notes_app/widgets/add_note_form.dart';
 
-class AddNoteBottomSheet extends StatefulWidget {
+class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
-
-  @override
-  State<AddNoteBottomSheet> createState() => _AddNoteBottomSheetState();
-}
-
-class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? title, subTitle;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24),
-      child: SingleChildScrollView(
-        child: Form(
-          key: formKey,
-          autovalidateMode: autovalidateMode,
-          child: Column(
-            children: [
-              CustomTextField(
-                textHint: 'Title',
-                onSave: (titleData) {
-                  title = titleData;
-                },
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              CustomTextField(
-                textHint: 'Description',
-                maxLines: 5,
-                onSave: (subTitleData) {
-                  subTitle = subTitleData;
-                },
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              CustomButton(
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                },
-              ),
-            ],
-          ),
-        ),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,//to make keyboard appear abave the form
+        left: 16,
+        right: 16,
+      ),
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {},
+        builder: (context, state) => ModalProgressHUD(
+          
+          inAsyncCall: ,
+          child: const AddNoteForm()),
       ),
     );
   }
